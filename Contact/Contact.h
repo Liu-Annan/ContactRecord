@@ -1,6 +1,9 @@
 #pragma once
 #include <stdio.h>
 #include <string.h>
+#include <assert.h>
+
+#define max 100
 struct PeoInfo
 {
 	char name[20];
@@ -11,7 +14,7 @@ struct PeoInfo
 };
 typedef struct Contact
 {
-	struct PeoInfo data[100];
+	struct PeoInfo data[max];
 	int count;
 }Contact;
 //初始化通讯录
