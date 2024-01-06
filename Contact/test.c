@@ -1,4 +1,4 @@
-
+#include "Contact.h"
 void menu()
 {
 	printf("*********************************\n");
@@ -13,6 +13,9 @@ void menu()
 
 int main(void)
 {
+	Contact con;
+	//初始化通讯录
+	InitContact(&con);
 	int input = 0;
 	do
 	{
@@ -22,6 +25,7 @@ int main(void)
 		switch (input)
 		{
 		case1:
+			AddContact(&con);
 			break;
 		case2:
 			break;
@@ -32,6 +36,12 @@ int main(void)
 		case5:
 			break;
 		case6:
+			break;
+		case0:
+			printf("退出通讯录\n");
+			break;
+		default:
+			printf("选择错误\n");
 			break;
 		}
 
