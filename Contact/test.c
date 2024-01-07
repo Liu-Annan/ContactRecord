@@ -34,6 +34,7 @@ int main(void)
 		case4:
 			break;
 		case5:
+			DisplayContact(&con);
 			break;
 		case6:
 			break;

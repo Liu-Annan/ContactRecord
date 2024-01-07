@@ -25,5 +25,17 @@ void AddContact(Contact* pc)
 	printf("请输入地址\n");
 	scanf("%s", pc->data[pc->count].address);
 
-	
+	pc->count++;
+	printf("联系人添加成功\n");
+}
+//打印通讯录
+void DisplayContact(Contact* pc)
+{
+	int i = 0;
+	for (i = 0; i < pc->count; i++)
+	{
+		printf("%20s\t%d\t%10s\t%15s\t%30s", pc->data[i].name, pc->data[i].age, pc->data[i].gender,
+			                                 pc->data[i].tele, pc->data[i].address);
+
+	}
 }

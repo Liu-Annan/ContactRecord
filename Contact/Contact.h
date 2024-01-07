@@ -21,3 +21,5 @@ typedef struct Contact
 void InitContact(Contact* pc);
 //增加联系人
 void AddContact(Contact* pc);
+//打印通讯录
+void DisplayContact(Contact* pc);
