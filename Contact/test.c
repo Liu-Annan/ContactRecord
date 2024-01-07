@@ -20,25 +20,26 @@ int main(void)
 	do
 	{
 		menu();
-		printf("请输入->\n");
+		printf("请输入->");
 		scanf("%d", &input);
 		switch (input)
 		{
-		case1:
+		case 1:
 			AddContact(&con);
 			break;
-		case2:
+		case 2:
+			DeleContact(&con);
 			break;
-		case3:
+		case 3:
 			break;
-		case4:
+		case 4:
 			break;
-		case5:
+		case 5:
 			DisplayContact(&con);
 			break;
-		case6:
+		case 6:
 			break;
-		case0:
+		case 0:
 			printf("退出通讯录\n");
 			break;
 		default:

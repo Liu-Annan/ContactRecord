@@ -6,11 +6,11 @@
 #define max 100
 struct PeoInfo
 {
-	char name[20];
+	char name[10];
 	int age;
 	char gender[10];
 	char tele[15];
-	char address[30];
+	char address[15];
 };
 typedef struct Contact
 {
@@ -22,4 +22,6 @@ void InitContact(Contact* pc);
 //增加联系人
 void AddContact(Contact* pc);
 //打印通讯录
-void DisplayContact(Contact* pc);
+void DisplayContact(const Contact* pc);
+//删除联系人
+void DeleContact(Contact* pc);
