@@ -37,7 +37,7 @@ void DisplayContact(Contact* pc)
 	for (i = 0; i < pc->count; i++)
 	{
 		printf("%-10s\t%-3d\t%-10s\t%-15s\t%-15s\n", pc->data[i].name, pc->data[i].age, pc->data[i].gender,
-			                                 pc->data[i].tele, pc->data[i].address);
+			                                         pc->data[i].tele, pc->data[i].address);
 	}
 }
 //查找联系人
@@ -58,12 +58,13 @@ static int find_by_name(Contact* pc, char name[])
 void DeleContact(Contact* pc)
 {
 	assert(pc);
+	int i = 0;
 	if (pc->count == 0)
 	{
 		printf("通讯录为空，操作错误\n");
 	}
 	char name[10] = { 0 };
-	printf("请输入要删除的联系人的姓名->\n");
+	printf("请输入要删除的联系人的姓名->");
 	scanf("%s", name);
 	int ret = find_by_name(pc, name);
 	if (ret == -1)
@@ -71,4 +72,55 @@ void DeleContact(Contact* pc)
 		printf("不存在此联系人\n");
 		return;
 	}
+	for (i = ret; i < pc->count - 1; i++)
+	{
+		pc->data[i] = pc->data[i + 1];
+	}
+	pc->count--;
+	printf("删除成功\n");
+}
+//查找联系人
+void SearchContact(Contact* pc)
+{
+	assert(pc);
+	char name[10] = { 0 };
+	printf("请输入要查找的联系人的姓名->");
+	scanf("%s", name);
+	int ret = find_by_name(pc, name);
+	if (ret == -1)
+	{
+		printf("不存在此联系人\n");
+		return;
+	}
+	printf("%-10s\t%-3s\t%-10s\t%-15s\t%-15s\n", "姓名", "年龄", "性别", "电话", "地址");
+	printf("%-10s\t%-3d\t%-10s\t%-15s\t%-15s\n", pc->data[ret].name, pc->data[ret].age, pc->data[ret].gender,
+			                                     pc->data[ret].tele, pc->data[ret].address);
+}
+//修改联系人信息
+void ModifyContact(Contact* pc)
+{
+	assert(pc);
+	char name[10] = { 0 };
+	printf("请输入要修改的联系人的姓名->");
+	scanf("%s", name);
+	int ret = find_by_name(pc, name);
+	if (ret == -1)
+	{
+		printf("不存在此联系人\n");
+		return;
+	}
+	printf("请输入姓名->");
+	scanf("%s", pc->data[ret].name);
+	printf("请输入年龄->");
+	scanf("%d", &(pc->data[ret].age));
+	printf("请输入性别->");
+	scanf("%s", pc->data[ret].gender);
+	printf("请输入电话->");
+	scanf("%s", pc->data[ret].tele);
+	printf("请输入地址->");
+	scanf("%s", pc->data[ret].address);
+	printf("修改成功\n");
+	printf("%-10s\t%-3s\t%-10s\t%-15s\t%-15s\n", "姓名", "年龄", "性别", "电话", "地址");
+	printf("%-10s\t%-3d\t%-10s\t%-15s\t%-15s\n", pc->data[ret].name, pc->data[ret].age, pc->data[ret].gender,
+		pc->data[ret].tele, pc->data[ret].address);
 }

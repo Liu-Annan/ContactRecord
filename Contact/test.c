@@ -3,14 +3,12 @@ void menu()
 {
 	printf("*********************************\n");
 	printf("**** 1.add          2.delete ****\n");
-	printf("**** 2.search       4,modify ****\n");
+	printf("**** 3.search       4.modify ****\n");
 	printf("**** 5.display      6.sort   ****\n");
 	printf("**** 0.exit                  ****\n");
 	printf("*********************************\n");
 	printf("*********************************\n");
 }
-
-
 int main(void)
 {
 	Contact con;
@@ -31,8 +29,10 @@ int main(void)
 			DeleContact(&con);
 			break;
 		case 3:
+			SearchContact(&con);
 			break;
 		case 4:
+			ModifyContact(&con);
 			break;
 		case 5:
 			DisplayContact(&con);

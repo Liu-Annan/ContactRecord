@@ -25,3 +25,7 @@ void AddContact(Contact* pc);
 void DisplayContact(const Contact* pc);
 //删除联系人
 void DeleContact(Contact* pc);
+//查找联系人
+void SearchContact(Contact* pc);
+//修改联系人信息
+void ModifyContact(Contact* pc);
