@@ -38,6 +38,7 @@ int main(void)
 			DisplayContact(&con);
 			break;
 		case 6:
+			SortContact(&con);
 			break;
 		case 0:
 			printf("�˳�ͨѶ¼\n");

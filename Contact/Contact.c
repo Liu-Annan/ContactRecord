@@ -124,3 +124,15 @@ void ModifyContact(Contact* pc)
 	printf("%-10s\t%-3d\t%-10s\t%-15s\t%-15s\n", pc->data[ret].name, pc->data[ret].age, pc->data[ret].gender,
 		pc->data[ret].tele, pc->data[ret].address);
 }
+//对通讯录排序
+//按照姓名排序
+int com_by_name(const void* e1, const void* e2)
+{
+	return strcmp(((struct PeoInfo*)e1)->name, ((struct PeoInfo*)e2)->name);
+}
+void SortContact(Contact* pc)
+{
+	assert(pc);
+	qsort(pc->data, pc->count, sizeof(struct PeoInfo), com_by_name);
+	printf("排序成功\n");
+}

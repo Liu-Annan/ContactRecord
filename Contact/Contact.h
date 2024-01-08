@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <assert.h>
-
+#include <stdlib.h>
 #define max 100
 struct PeoInfo
 {
@@ -29,3 +29,5 @@ void DeleContact(Contact* pc);
 void SearchContact(Contact* pc);
 //修改联系人信息
 void ModifyContact(Contact* pc);
+//对通讯录排序
+void SortContact(Contact* pc);
