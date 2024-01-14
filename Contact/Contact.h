@@ -12,10 +12,20 @@ struct PeoInfo
 	char tele[15];
 	char address[15];
 };
+//静态版本
+//typedef struct Contact
+//{
+//	struct PeoInfo data[max];
+//	int count;
+//}Contact;
+
+// 动态版本
 typedef struct Contact
 {
-	struct PeoInfo data[max];
+	struct PeoInfo* data;
 	int count;
+	//通讯录的容量
+	int capacity;
 }Contact;
 //初始化通讯录
 void InitContact(Contact* pc);

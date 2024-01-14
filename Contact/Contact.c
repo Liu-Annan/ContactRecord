@@ -1,10 +1,22 @@
 #include "Contact.h"
-//初始化通讯录
+//初始化通讯录(静态版本)
+//void InitContact(Contact* pc)
+//{
+//	assert(pc);
+//	pc->count = 0;
+//	memset(pc->data, 0, sizeof(pc->data));
+//}
+// 初始化通讯录(动态版本)
 void InitContact(Contact* pc)
 {
 	assert(pc);
 	pc->count = 0;
-	memset(pc->data, 0, sizeof(pc->data));
+	pc->data = calloc(3, sizeof(struct PeoInfo));
+	if (pc->data == NULL)
+	{
+		printf("%s\n", strerror(errno));
+		return;
+	}
 }
 //增加联系人
 void AddContact(Contact* pc)
