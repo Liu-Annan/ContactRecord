@@ -6,6 +6,7 @@
 //	pc->count = 0;
 //	memset(pc->data, 0, sizeof(pc->data));
 //}
+
 // 初始化通讯录(动态版本)
 void InitContact(Contact* pc)
 {
@@ -14,17 +15,57 @@ void InitContact(Contact* pc)
 	pc->data = calloc(3, sizeof(struct PeoInfo));
 	if (pc->data == NULL)
 	{
-		printf("%s\n", strerror(errno));
+		printf("InitContact:%s\n", strerror(errno));
 		return;
 	}
+	pc->capacity = 3;
 }
-//增加联系人
+//销毁通讯录
+void DestroyContact(Contact* pc)
+{
+	assert(pc);
+	free(pc->data);
+	pc->data = NULL;
+}
+//增加联系人(静态版本)
+//void AddContact(Contact* pc)
+//{
+//	assert(pc);
+//	if (pc->count == max)
+//	{
+//		printf("通讯录已满，无法增加\n");
+//	}
+//	printf("请输入姓名->");
+//	scanf("%s", pc->data[pc->count].name);
+//	printf("请输入年龄->");
+//	scanf("%d", &(pc->data[pc->count].age));
+//	printf("请输入性别->");
+//	scanf("%s", pc->data[pc->count].gender);
+//	printf("请输入电话->");
+//	scanf("%s", pc->data[pc->count].tele);
+//	printf("请输入地址->");
+//	scanf("%s", pc->data[pc->count].address);
+//
+//	pc->count++;
+//	printf("联系人添加成功\n");
+//}
+
+//增加联系人(动态版本)
 void AddContact(Contact* pc)
 {
 	assert(pc);
-	if (pc->count == max)
+	if (pc->capacity == pc->count)
 	{
-		printf("通讯录已满，无法增加\n");
+		struct PeoInfo* ptr = realloc(pc->data, (pc->capacity + 2) * sizeof(struct PeoInfo));
+		if (ptr == NULL)
+		{
+			printf("AddContact:%s\n", strerror(errno));
+		}
+		else
+		{
+			pc->data = ptr;
+			pc->capacity += 2;
+		}
 	}
 	printf("请输入姓名->");
 	scanf("%s", pc->data[pc->count].name);

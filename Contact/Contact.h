@@ -29,6 +29,8 @@ typedef struct Contact
 }Contact;
 //初始化通讯录
 void InitContact(Contact* pc);
+//销毁通讯录
+void DestroyContact(Contact* pc);
 //增加联系人
 void AddContact(Contact* pc);
 //打印通讯录
